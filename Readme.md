@@ -13,6 +13,7 @@
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 [![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
 [![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Notion](https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&logoColor=white)](https://lumbar-mall-a1b.notion.site/Challenge-fullstack-1d50ceab98a980b1b2a7cb2877bc73ac)
 
 </div>
 
@@ -21,10 +22,9 @@
 This fullstack TODO application demonstrates modern web development practices by combining **FastAPI** for the backend and **Next.js (App Router)** for the frontend. The project features user authentication, database persistence, and a responsive UI, all containerized with Docker for easy deployment.
 The application allows users to create, read, update, and delete tasks, providing a seamless experience across devices.
 
-![Print do Aplicativo de Gerenciamento de Tarefas](https://github.com/lucasfdcampos/fullstack-todoapp/blob/master/todo-app.png)
-
-## 📋 Backlog ##
-[![Notion](https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&logoColor=white)](https://lumbar-mall-a1b.notion.site/Challenge-fullstack-1d50ceab98a980b1b2a7cb2877bc73ac)
+<p align="center">
+  <img src="https://github.com/lucasfdcampos/fullstack-todoapp/blob/master/todo-app.png" alt="Print do Aplicativo de Gerenciamento de Tarefas" width="500">
+</p>
 
 ## ✨ Key Features
 
