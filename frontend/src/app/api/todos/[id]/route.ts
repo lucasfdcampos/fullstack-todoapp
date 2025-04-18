@@ -1,23 +1,20 @@
 import { NextRequest, NextResponse } from "next/server"
-import type { ApiError } from "@/types"
+import type { ApiError, Todo } from "@/types"
 
-export async function GET(
-  request: NextRequest,
-  { params }: { params: { id: string } },
-) {
+export async function GET(request: NextRequest) {
   try {
-    const { headers } = request
-    const token = headers.get("authorization")?.split(" ")[1]
+    const url = request.nextUrl;
+    const pathParts = url.pathname.split('/');
+    const todoId = pathParts[pathParts.length - 1]; // pega o [id] da URL
 
-    const awaitedParams = await Promise.resolve(params);
-    const id = awaitedParams.id;
+    const token = request.headers.get('authorization')?.split(' ')[1];
 
     if (!token) {
       return NextResponse.json({ message: "Token de autenticação não fornecido" }, { status: 401 })
     }
 
     // Fazer requisição para o backend Python
-    const response = await fetch(`${process.env.BACKEND_URL}/todos/${id}`, {
+    const response = await fetch(`${process.env.BACKEND_URL}/todos/${todoId}`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -28,7 +25,7 @@ export async function GET(
       return NextResponse.json({ message: "Tarefa não encontrada" }, { status: 404 })
     }
 
-    const data = await response.json()
+    const data = (await response.json()) as Todo
 
     if (!response.ok) {
       return NextResponse.json(
@@ -45,16 +42,14 @@ export async function GET(
   }
 }
 
-export async function PUT(
-  request: NextRequest,
-  { params }: { params: { id: string } },
-) {
+export async function PUT(request: NextRequest) {
   try {
     const { title, description } = await request.json();
-    const token = request.headers.get("authorization")?.split(" ")[1];
+    const url = request.nextUrl;
+    const pathParts = url.pathname.split('/');
+    const todoId = pathParts[pathParts.length - 1]; // pega o [id] da URL
 
-    const awaitedParams = await Promise.resolve(params);
-    const id = awaitedParams.id;
+    const token = request.headers.get('authorization')?.split(' ')[1];
 
     if (!token) {
       return NextResponse.json(
@@ -70,7 +65,7 @@ export async function PUT(
       );
     }
 
-    const response = await fetch(`${process.env.BACKEND_URL}/todos/${id}`, {
+    const response = await fetch(`${process.env.BACKEND_URL}/todos/${todoId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -79,7 +74,7 @@ export async function PUT(
       body: JSON.stringify({ title, description }),
     });
 
-    const data = await response.json();
+    const data = (await response.json()) as Todo
 
     if (!response.ok) {
       return NextResponse.json(
@@ -95,23 +90,20 @@ export async function PUT(
   }
 }
 
-export async function DELETE(
-  request: NextRequest,
-  { params }: { params: { id: string } },
-) {
+export async function DELETE(request: NextRequest) {
   try {
-    const { headers } = request
-    const token = headers.get("authorization")?.split(" ")[1]
+    const url = request.nextUrl;
+    const pathParts = url.pathname.split('/');
+    const todoId = pathParts[pathParts.length - 1]; // pega o [id] da URL
 
-    const awaitedParams = await Promise.resolve(params);
-    const id = awaitedParams.id;
+    const token = request.headers.get('authorization')?.split(' ')[1];
 
     if (!token) {
       return NextResponse.json({ message: "Token de autenticação não fornecido" }, { status: 401 })
     }
 
     // Fazer requisição para o backend Python
-    const response = await fetch(`${process.env.BACKEND_URL}/todos/${id}`, {
+    const response = await fetch(`${process.env.BACKEND_URL}/todos/${todoId}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`,

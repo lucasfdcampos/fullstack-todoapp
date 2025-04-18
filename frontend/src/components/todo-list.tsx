@@ -106,6 +106,7 @@ export function TodoList() {
     } else {
       console.log('Not authenticated yet, skipping fetch');
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAuthenticated]);
 
   const fetchTodos = async () => {
