@@ -16,13 +16,15 @@
 
 </div>
 
-## 📋 Overview
+## 📝 Overview ##
 
 This fullstack TODO application demonstrates modern web development practices by combining **FastAPI** for the backend and **Next.js (App Router)** for the frontend. The project features user authentication, database persistence, and a responsive UI, all containerized with Docker for easy deployment.
 The application allows users to create, read, update, and delete tasks, providing a seamless experience across devices.
 
 ![Print do Aplicativo de Gerenciamento de Tarefas](https://github.com/lucasfdcampos/fullstack-todoapp/blob/master/todo-app.png)
-_Uma captura de tela da interface principal do aplicativo de gerenciamento de tarefas._
+
+## 📋 Backlog ##
+[![Notion](https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&logoColor=white)](https://lumbar-mall-a1b.notion.site/Challenge-fullstack-1d50ceab98a980b1b2a7cb2877bc73ac)
 
 ## ✨ Key Features
 
@@ -165,6 +167,7 @@ frontend/
 - The frontend UI was developed with assistance from [v0.dev](https://v0.dev/), accelerating the component creation process.
 - The authentication system uses JWT tokens with secure password hashing via bcrypt.
 CORS is properly configured to allow secure communication between frontend and backend.
+
 
 ## 📄 License
 
