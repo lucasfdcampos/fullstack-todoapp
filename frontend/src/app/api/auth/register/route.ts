@@ -5,12 +5,10 @@ export async function POST(request: Request) {
   try {
     const { username, email, password } = await request.json()
 
-    // Validação básica
     if (!username || !email || !password) {
       return NextResponse.json({ message: "Todos os campos são obrigatórios" }, { status: 400 })
     }
 
-    // Fazer requisição para o backend Python
     const response = await fetch(`${process.env.BACKEND_URL}/users`, {
       method: "POST",
       headers: {
@@ -28,7 +26,6 @@ export async function POST(request: Request) {
       )
     }
 
-    // Retornar resposta do backend
     return NextResponse.json({ username })
   } catch (error) {
     console.error("Erro no registro:", error)

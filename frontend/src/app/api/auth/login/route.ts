@@ -5,7 +5,6 @@ export async function POST(request: Request) {
   try {
     const { username, password } = await request.json()
 
-    // Validação básica
     if (!username || !password) {
       return NextResponse.json({ message: "Nome de usuário e senha são obrigatórios" }, { status: 400 })
     }
@@ -18,7 +17,6 @@ export async function POST(request: Request) {
       );
     }
 
-    // Fazer requisição para o backend Python
     const response = await fetch(`${process.env.BACKEND_URL}/auth/login`, {
       method: "POST",
       headers: {
@@ -45,7 +43,6 @@ export async function POST(request: Request) {
       );
     }
 
-    // Retornar resposta do backend
     return NextResponse.json({
       username,
       access_token: (data as LoginResponse).access_token,

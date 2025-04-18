@@ -58,7 +58,6 @@ export default function LoginForm() {
 
       const authData = data as LoginResponse;
       const token = authData.access_token;
-
       if (!token) {
         console.error('Token não encontrado na resposta:', authData);
         throw new Error('Token de autenticação não encontrado na resposta');
@@ -85,13 +84,11 @@ export default function LoginForm() {
       <h1 className="text-2xl font-bold text-primary mb-6 text-center">
         Login
       </h1>
-
       {error && (
         <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
           {error}
         </div>
       )}
-
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label htmlFor="username" className="block text-gray-700 mb-2">

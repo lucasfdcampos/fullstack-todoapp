@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 import { Loader2 } from "lucide-react"
+import { TodoList } from "@/components/todo-list"
 
 export default function TodosPage() {
   const router = useRouter()
@@ -55,7 +56,7 @@ export default function TodosPage() {
             Gerencie suas tarefas de forma simples e eficiente
           </p>
         </div>
-        <span>Página inicial</span>
+        <TodoList />
       </div>
     </div>
   )
