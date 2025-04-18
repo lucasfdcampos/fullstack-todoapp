@@ -76,6 +76,11 @@ body {
   padding: 0;
 }
 
+.dark body {
+  color: #d4d2d5;
+  background-color: #1f1f23;
+}
+
 @layer components {
   .btn-primary {
     @apply bg-primary text-white py-2 px-4 rounded-md hover:bg-primary-dark transition-colors;

@@ -36,7 +36,7 @@ export default function TodoForm({ onAddTodo }: TodoFormProps) {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div className="space-y-2">
-        <label htmlFor="title" className="block text-sm font-medium text-gray-700">
+        <label htmlFor="title" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
           Título da tarefa
         </label>
         <input
@@ -46,12 +46,12 @@ export default function TodoForm({ onAddTodo }: TodoFormProps) {
           onChange={(e) => setTitle(e.target.value)}
           placeholder="Adicione uma tarefa..."
           disabled={isSubmitting}
-          className="input-field"
+          className="input-field dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400"
         />
       </div>
 
       <div className="space-y-2">
-        <label htmlFor="description" className="block text-sm font-medium text-gray-700">
+        <label htmlFor="description" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
           Descrição
         </label>
         <textarea
@@ -60,7 +60,7 @@ export default function TodoForm({ onAddTodo }: TodoFormProps) {
           onChange={(e) => setDescription(e.target.value)}
           placeholder="Descreva os detalhes da tarefa (opcional)"
           disabled={isSubmitting}
-          className="input-field min-h-[100px] resize-y"
+          className="input-field min-h-[100px] resize-y dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400"
         />
       </div>
 

@@ -1,11 +1,13 @@
-import LoginForm from "@/components/login-form";
+import LoginForm from "@/components/login-form"
+import { ThemeToggle } from "@/components/theme-toggle"
 
-export default function Home() {
+export default function RegisterPage() {
   return (
-    <div className="flex min-h-screen items-center justify-center p-4 bg-muted">
-      <div className="w-full max-w-md mx-auto">
-        <LoginForm />
+    <main className="flex flex-col items-center justify-center min-h-screen bg-light dark:bg-gray-900 p-4">
+      <div className="absolute top-4 right-4">
+        <ThemeToggle />
       </div>
-    </div>
-  );
+      <LoginForm />
+    </main>
+  )
 }

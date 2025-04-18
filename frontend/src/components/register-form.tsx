@@ -55,19 +55,21 @@ export default function RegisterForm() {
   };
 
   return (
-    <div className="card-container w-full max-w-md mx-auto">
+    <div className="card-container w-full max-w-md mx-auto dark:bg-gray-800 dark:border-gray-700">
       <div className="flex flex-col space-y-1.5 mb-6">
-        <h1 className="text-2xl font-bold text-primary">Cadastro</h1>
-        <p className="text-sm text-gray-500">Crie uma nova conta para começar a usar o sistema</p>
+        <h1 className="text-2xl font-bold text-primary dark:text-primary-foreground">Cadastro</h1>
+        <p className="text-sm text-gray-500 dark:text-gray-400">Crie uma nova conta para começar a usar o sistema</p>
       </div>
 
       {error && (
-        <div className="bg-red-100 text-red-700 text-sm p-3 rounded-md mb-4 border border-red-300">{error}</div>
+        <div className="bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 text-sm p-3 rounded-md mb-4 border border-red-300 dark:border-red-800">
+          {error}
+        </div>
       )}
 
       <form onSubmit={handleRegister} className="space-y-4">
         <div className="space-y-2">
-          <label htmlFor="username" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="username" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
             Nome de usuário
           </label>
           <input
@@ -77,12 +79,12 @@ export default function RegisterForm() {
             onChange={(e) => setUsername(e.target.value)}
             disabled={isLoading}
             placeholder="Digite seu nome de usuário"
-            className="input-field"
+            className="input-field dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400"
           />
         </div>
 
         <div className="space-y-2">
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
             E-mail
           </label>
           <input
@@ -92,12 +94,12 @@ export default function RegisterForm() {
             onChange={(e) => setEmail(e.target.value)}
             disabled={isLoading}
             placeholder="Digite seu e-mail"
-            className="input-field"
+            className="input-field dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400"
           />
         </div>
 
         <div className="space-y-2">
-          <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
             Senha
           </label>
           <input
@@ -107,12 +109,12 @@ export default function RegisterForm() {
             onChange={(e) => setPassword(e.target.value)}
             disabled={isLoading}
             placeholder="Digite sua senha"
-            className="input-field"
+            className="input-field dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400"
           />
         </div>
 
         <div className="space-y-2">
-          <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
             Confirmar senha
           </label>
           <input
@@ -122,7 +124,7 @@ export default function RegisterForm() {
             onChange={(e) => setConfirmPassword(e.target.value)}
             disabled={isLoading}
             placeholder="Confirme sua senha"
-            className="input-field"
+            className="input-field dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400"
           />
         </div>
 
@@ -131,12 +133,12 @@ export default function RegisterForm() {
         </button>
       </form>
 
-      <p className="text-center text-sm text-gray-500 mt-4">
+      <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-4">
         Já tem uma conta?{" "}
-        <Link href="/" className="text-primary hover:underline">
+        <Link href="/" className="text-primary dark:text-primary-foreground hover:underline">
           Faça login
         </Link>
       </p>
     </div>
-  );
+  )
 }

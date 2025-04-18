@@ -303,19 +303,16 @@ export function TodoList() {
   };
 
   return (
-    <div className="card-container w-full max-w-3xl mx-auto">
-      <div className="p-6 border-b flex justify-between items-center">
-        <h2 className="text-2xl font-bold text-primary">Minhas Tarefas</h2>
+    <div className="card-container w-full max-w-3xl mx-auto dark:bg-gray-900 dark:border-gray-700">
+      <div className="p-6 border-b dark:border-gray-700 flex justify-between items-center">
+        <h2 className="text-2xl font-bold text-primary dark:text-primary-foreground">Minhas Tarefas</h2>
         <div className="flex items-center gap-3">
           {username && (
-            <span className="text-sm font-medium">
-              Olá, <span className="text-primary">{username}</span>
+            <span className="text-sm font-medium dark:text-gray-300">
+              Olá, <span className="text-primary dark:text-primary-foreground">{username}</span>
             </span>
           )}
-          <button
-            onClick={handleLogout}
-            className="btn-primary flex items-center gap-1 px-3 py-1"
-          >
+          <button onClick={handleLogout} className="btn-primary flex items-center gap-1 px-3 py-1">
             <LogOut className="h-4 w-4" />
             <span>Sair</span>
           </button>
@@ -324,7 +321,7 @@ export function TodoList() {
 
       <div className="p-6 space-y-4">
         {error && (
-          <div className="bg-yellow-100 text-yellow-800 p-4 rounded flex items-center gap-2">
+          <div className="bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-200 p-4 rounded flex items-center gap-2 border border-yellow-200 dark:border-yellow-800">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5 text-yellow-500"
@@ -348,43 +345,26 @@ export function TodoList() {
         {isLoading ? (
           <div className="flex items-center gap-2">
             <svg
-              className="animate-spin h-5 w-5 text-primary"
+              className="animate-spin h-5 w-5 text-primary dark:text-primary-foreground"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
             >
-              <circle
-                className="opacity-25"
-                cx="12"
-                cy="12"
-                r="10"
-                stroke="currentColor"
-                strokeWidth="4"
-              ></circle>
-              <path
-                className="opacity-75"
-                fill="currentColor"
-                d="M4 12a8 8 0 018-8v8z"
-              ></path>
+              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
             </svg>
-            <span>Carregando tarefas...</span>
+            <span className="dark:text-gray-300">Carregando tarefas...</span>
           </div>
         ) : todos.length > 0 ? (
           <ul className="space-y-2">
             {todos.map((todo) => (
-              <TodoItem
-                key={todo.id}
-                todo={todo}
-                onToggle={toggleTodo}
-                onDelete={deleteTodo}
-                onUpdate={updateTodo}
-              />
+              <TodoItem key={todo.id} todo={todo} onToggle={toggleTodo} onDelete={deleteTodo} onUpdate={updateTodo} />
             ))}
           </ul>
         ) : (
-          <p className="text-gray-500 text-sm">Nenhuma tarefa encontrada.</p>
+          <p className="text-gray-500 dark:text-gray-400 text-sm">Nenhuma tarefa encontrada.</p>
         )}
       </div>
     </div>
-  );
+  )
 }
