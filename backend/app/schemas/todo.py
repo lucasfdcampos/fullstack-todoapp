@@ -6,6 +6,10 @@ class TodoCreate(BaseModel):
     description: Optional[str] = None
     completed: bool = False
 
+class TodoUpdate(BaseModel):
+    title: Optional[str]
+    description: Optional[str]
+
 class TodoResponse(BaseModel):
     id: int
     title: str
