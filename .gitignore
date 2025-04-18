@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# VSCode
+.vscode/
+
 # C extensions
 *.so
 
@@ -50,6 +53,9 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 cover/
+
+# Alembic
+alembic/versions/*.pyc
 
 # Translations
 *.mo
@@ -172,3 +178,7 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# OS
+.DS_Store
+Thumbs.db
