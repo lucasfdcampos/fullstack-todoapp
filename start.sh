@@ -2,6 +2,14 @@
 
 set -e
 
+# Criar arquivo .env se não existir, copiando de .env.example
+if [ ! -f .env ]; then
+  echo "Arquivo .env não encontrado. Criando uma cópia de .env.example..."
+  cp .env.example .env
+else
+  echo "Arquivo .env já existe."
+fi
+
 # Subir banco de datos
 echo "Iniciando o banco de dados..."
 docker-compose up -d db
@@ -14,14 +22,6 @@ until docker exec db pg_isready -U postgres > /dev/null 2>&1; do
 done
 
 echo "Banco de dados pronto!"
-
-# Criar arquivo .env se não existir, copiando de .env.example
-if [ ! -f .env ]; then
-  echo "Arquivo .env não encontrado. Criando uma cópia de .env.example..."
-  cp .env.example .env
-else
-  echo "Arquivo .env já existe."
-fi
 
 
 # Rodar as migrations com Alembic
