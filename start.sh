@@ -15,6 +15,15 @@ done
 
 echo "Banco de dados pronto!"
 
+# Criar arquivo .env se não existir, copiando de .env.example
+if [ ! -f .env ]; then
+  echo "Arquivo .env não encontrado. Criando uma cópia de .env.example..."
+  cp .env.example .env
+else
+  echo "Arquivo .env já existe."
+fi
+
+
 # Rodar as migrations com Alembic
 echo "Executando migrations com Alembic..."
 docker-compose run --rm backend alembic upgrade head

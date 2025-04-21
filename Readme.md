@@ -71,9 +71,6 @@ The application allows users to create, read, update, and delete tasks, providin
    cd fullstack-todo-app
    ```
 
-    Create `.env file` like `.env.example` with your database credentials.
-
-
 2. **Start the application**
    ```bash 
    ./start.sh
