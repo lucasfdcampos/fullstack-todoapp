@@ -23,6 +23,13 @@ done
 
 echo "Banco de dados pronto!"
 
+# Construir o frontend
+echo "Construindo o frontend..."
+cd frontend
+npm install
+npm run build
+cd ..
+
 
 # Rodar as migrations com Alembic
 echo "Executando migrations com Alembic..."
